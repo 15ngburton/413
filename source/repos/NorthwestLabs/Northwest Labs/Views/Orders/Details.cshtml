@@ -1,0 +1,74 @@
+﻿@model Northwest_Labs.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isRushed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isRushed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionalsPreApproved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionalsPreApproved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wasQuote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wasQuote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.confirmDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.confirmDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Northwest_Labs.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.custFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.streetAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.streetAddress2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stateID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.countryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custFax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.organizationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.assignedSalesRep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custUsername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custPasswordHash)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.custFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.streetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.streetAddress2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.countryID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custFax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.organizationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.assignedSalesRep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custUsername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custPasswordHash)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CustomerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerID })
+        </td>
+    </tr>
+}
+
+</table>

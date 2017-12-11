@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Northwest_Labs.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isRushed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionalsPreApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wasQuote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirmDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isRushed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionalsPreApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wasQuote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.confirmDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.orderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.orderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.orderID })
+        </td>
+    </tr>
+}
+
+</table>
