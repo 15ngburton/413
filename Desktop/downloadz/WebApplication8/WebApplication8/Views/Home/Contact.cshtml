@@ -1,0 +1,72 @@
+﻿<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+</head>
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<br />
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item active">Contact</li>
+</ol>
+
+<img src="~/Content/img/missionary-training-center-walk.jpg" class="missionaryBanner" />
+
+<h2>Contact Us</h2>
+
+<div class="row">
+    <div class="col-xs-6 contactRight">
+        <h3 class ="contactName">Respect Your Elders</h3>
+        <address >
+            372 N 500 W<br />
+            Salt Lake City, UT 84029<br />
+            <abbr title="Phone">P:</abbr>
+            (801) 304 - 3928
+        </address>
+    </div>
+    <div class="col-xs-6">
+                @using (Html.BeginForm())
+                {
+                    <p>
+                        Name
+                        <br />
+                        @Html.TextBox("Name")
+                        <br />
+                        <br />
+                        Email
+                        <br />
+                        @Html.TextBox("Email")
+                        <br />
+                        <br />
+                        Subject
+                        <br />
+                        <fieldset>
+                            <select id="Subject" name="Subject">
+
+                                <option selected="selected" value="--Subject--"></option>
+
+                                <option value="0">Report a User</option>
+
+                                <option value="1">Report a Problem</option>
+
+                                <option value="2">Request a Feature</option>
+
+                                <option value="3">Other</option>
+
+                            </select>
+
+                    </fieldset>
+                <br />
+                Message
+                <br />
+                @Html.TextArea("Message1")
+                <br />
+                <br />
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </p>
+    
+        }
+    </div>
+</div>

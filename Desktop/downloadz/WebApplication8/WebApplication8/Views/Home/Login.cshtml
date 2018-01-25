@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <label for="inputEmail">Email address</label>
+    @Html.TextBox("Email")
+    <label for="inputPassword">Password</label>
+    @Html.Password("Password")
+    <button type="submit">Login</button>
+}
+
+@Html.ActionLink("Sign Up", "Create", "Users", null, new { @class = "btn btn-primary" })

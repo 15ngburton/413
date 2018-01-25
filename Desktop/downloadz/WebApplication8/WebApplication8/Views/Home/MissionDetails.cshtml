@@ -1,0 +1,112 @@
+﻿@model WebApplication8.Models.MissionDetails
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+</head>
+@{
+    ViewBag.Title = "Mission Details";
+}
+
+<br />
+
+<!-- Breadcrumb displayed at the top of the page -->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Mission", "Mission", "Home")</li>
+    <li class="breadcrumb-item active">Mission Details</li>
+</ol>
+
+
+<h2>Mission Details</h2>
+
+<div class="row">
+    <div class="col-xs-6">
+        <!--Loads the mission flag-->
+        <img src="@(Url.Content(Model.Mission.missionSymbol))" alt="Mission Pic" class="missionBanner" />  
+    </div>
+    <!--Loads the mission information-->
+    <div class="col-xs-6">
+        <h3>@Model.Mission.missionName</h3>
+
+        <table>
+            <tr>
+                <td class="td1">President's Name:</td>
+                <td class="td2">@Model.Mission.missionPresidentName</td>
+            </tr>
+            <tr>
+                <td class="td1">Address:</td>
+                <td>@Model.Mission.missionAddress</td>
+            </tr>
+            <tr>
+                <td class="td1">Language:</td>
+                <td>@Model.Mission.missionLanguage</td>
+            </tr>
+            <tr>
+                <td class="td1">Climate:</td>
+                <td>@Model.Mission.missionClimate</td>
+            </tr>
+            <tr>
+                <td class="td1">Dominant Religion:</td>
+                <td>@Model.Mission.dominantReligion</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-6">
+        <br />
+        <h2 style="text-align:center">Mission Q&A</h2>
+        <!-- Loads the questions and replies, as well as the associated reply forms -->
+        @{
+            //Each question is processed
+            foreach (var item in Model.MissionQuestion)
+            {
+                //Find the user associated with the question and display their first and last name
+                for (int i = 0; i < Model.User.Count; i++)
+                {
+                    if (Model.User[i].userID == item.userID)
+                    {
+                        <b style="font-size:18px;">@Model.User[i].userFirstName  @Model.User[i].userLastName</b>
+                        break;
+                    }
+                }
+                //Question and answer
+                <p><span style="font-size:16px;">@item.question</span></p>
+                <p> <span style="font-size:12px;">@item.answer </span> </p>
+
+                //Collapseable reply button
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#@(item.missionQuestionID)">Reply</button>
+                <div id="@(item.missionQuestionID)" class="collapse">
+                    @using (Html.BeginForm())
+                    { 
+                        <br />
+                        @Html.TextBox("replyBox" + item.missionQuestionID)
+                        <button name="submit" id="submit" type="submit" value="@(item.missionQuestionID)" class="btn btn-primary">Reply</button>
+                    }
+                </div>
+                <br />
+                <br />
+            }
+
+        }
+
+        <h3 style="text-align:center;">Ask A Question</h3>
+
+        <!-- Post Question Form -->
+        @using (Html.BeginForm())
+        {
+            <p>
+                Question: <br />
+                @Html.TextArea("questionText")
+                <br /><br />
+                <input name="submit" id ="submit" type="submit" value="Post" class="btn btn-primary"/>
+            </p>
+        }
+
+    </div>
+    <div class="col-xs-3">
+    </div>
+</div>
