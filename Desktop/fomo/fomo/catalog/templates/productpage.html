@@ -16,13 +16,13 @@
         </form>
       </div>
       <div class = "col-xs-6">
-      <img src = "${ STATIC_URL + product.image_url() }" class = "productImg" id = "largeImage" alt = "${ product.name } picture" >
-      <br>
-      %for imgURL in product.image_urls():
+        <img src = "${ STATIC_URL + product.image_url() }" class = "productImg" id = "largeImage" alt = "${ product.name } picture" />
+        <br>
         <ul class = "thumbnailList">
-          <li><img src = "${ STATIC_URL + imgURL }" class = "thumbNail" alt = "${ product.name } thumbNail"><li>
+        %for imgURL in product.image_urls():
+            <li><img src = "${ STATIC_URL + imgURL }" class = "thumbnail" alt = "${ product.name } thumbNail" id = "thumbImg" /><li>
+        %endfor
         </ul>
-      %endfor
       </div>
     </div>
   </div>

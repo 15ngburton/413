@@ -16,7 +16,7 @@ img.productImg{
   float:left;
 }
 
-img.thumbNail{
+img.thumbnail{
     width:75px;
     height:75px;
     float: right;
@@ -24,6 +24,10 @@ img.thumbNail{
 }
 
 ul.thumbnailList{
-  display:flex;
   list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+li.imgItem{
 }
