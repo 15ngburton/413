@@ -1,0 +1,29 @@
+<%inherit file = "/homepage/templates/app_base.htm" />
+<%block name="content">
+  <div class = "row">
+    <div class = "col-xs-4">
+      <p class = "hidden_tag" id = "catID">${ catID }</p>
+      <p class = "hidden_tag" id = "pageNumber">${ page_num }</p>
+      <p class = "hidden_tag" id = "maxPageNumber">${ num_of_pages }</p>
+      <h1>${ category }</h1>
+      <ul id="catalog"></ul>
+      <ul class = "cat_list">
+        %if category == "All Products":
+          <li><a href = "0" class = "selected_link">All Products</a></li>
+        %else:
+          <li><a href = "0">All Products</a></li>
+        %endif
+
+        %for c in category_list:
+          %if c.name == category:
+            <li><a href = "/catalog/index/${ c.id }" class = "selected_link">${ c.name }</a></li>
+          %else:
+            <li><a href = "/catalog/index/${ c.id }">${ c.name }</a></li>
+          %endif
+        %endfor
+      </ul>
+    </div>
+    <%block name = "catContent">
+    </%block>
+  </div>
+</%block>

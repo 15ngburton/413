@@ -25,7 +25,7 @@ namespace Northwest_Labs.Controllers
             return View(db.Orders.ToList());
         }
 
-        public async Task SendEmail(int id)
+        public async Task SendEmail(int? id)
         {
             Customer model = db.Customers.Find(id);
             var message = new MailMessage();

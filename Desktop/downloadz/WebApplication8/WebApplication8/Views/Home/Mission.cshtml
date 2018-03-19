@@ -10,13 +10,11 @@
 }
 
 <br />
-<!-- Breadcrumb -->
 <ol class="breadcrumb">
     <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
     <li class="breadcrumb-item active">Mission</li>
 </ol>
 
-<!-- Mission Jumbotron picture and text-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container-fluid">
         <br />
@@ -33,7 +31,6 @@
     </button>
     <ul class="dropdown-menu">
         @{ 
-            //Retreives every mission and makes it a link option in the dropdown 
             foreach(var item in Model)
             {
                 <li>@Html.ActionLink(item.missionName, "MissionDetails", "Home", new {menu = item.missionID}, null)</li>

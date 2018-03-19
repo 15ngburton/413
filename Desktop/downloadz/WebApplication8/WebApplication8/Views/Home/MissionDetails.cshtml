@@ -8,8 +8,6 @@
 }
 
 <br />
-
-<!-- Breadcrumb displayed at the top of the page -->
 <ol class="breadcrumb">
     <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
     <li class="breadcrumb-item">@Html.ActionLink("Mission", "Mission", "Home")</li>
@@ -59,12 +57,9 @@
     <div class="col-xs-6">
         <br />
         <h2 style="text-align:center">Mission Q&A</h2>
-        <!-- Loads the questions and replies, as well as the associated reply forms -->
         @{
-            //Each question is processed
             foreach (var item in Model.MissionQuestion)
             {
-                //Find the user associated with the question and display their first and last name
                 for (int i = 0; i < Model.User.Count; i++)
                 {
                     if (Model.User[i].userID == item.userID)
@@ -73,18 +68,16 @@
                         break;
                     }
                 }
-                //Question and answer
                 <p><span style="font-size:16px;">@item.question</span></p>
                 <p> <span style="font-size:12px;">@item.answer </span> </p>
 
-                //Collapseable reply button
                 <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#@(item.missionQuestionID)">Reply</button>
                 <div id="@(item.missionQuestionID)" class="collapse">
                     @using (Html.BeginForm())
                     { 
                         <br />
                         @Html.TextBox("replyBox" + item.missionQuestionID)
-                        <button name="submit" id="submit" type="submit" value="@(item.missionQuestionID)" class="btn btn-primary">Reply</button>
+                        <button name="submit" id="submit" type="submit" value="@(item.missionQuestionID)">Reply</button>
                     }
                 </div>
                 <br />
@@ -95,14 +88,13 @@
 
         <h3 style="text-align:center;">Ask A Question</h3>
 
-        <!-- Post Question Form -->
         @using (Html.BeginForm())
         {
             <p>
                 Question: <br />
                 @Html.TextArea("questionText")
                 <br /><br />
-                <input name="submit" id ="submit" type="submit" value="Post" class="btn btn-primary"/>
+                <input name="submit" id ="submit" type="submit" value="Post" />
             </p>
         }
 

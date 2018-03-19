@@ -1,0 +1,10 @@
+<%inherit file="app_base.htm" />
+<%block name = "top_content">
+</%block>
+
+<%block name = "catContent">
+  <div class = "col-xs-8">
+    <p><a id = "previous_page"><<</a> Page <span id = "current_page">${ page_num }</span> of ${ num_of_pages } <a id = "next_page">>></a>
+    <div id = "inner_page"></div>
+  </div>
+</%block>
