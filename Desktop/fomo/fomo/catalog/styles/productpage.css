@@ -1,0 +1,29 @@
+h1.productName{
+  font-size:50pt;
+  text-decoration: underline;
+  font-weight:bold;
+}
+
+p{
+  font-size:16pt;
+  font-style:italic;
+  font-family: sans-serif;
+}
+
+img.productImg{
+  width:420px;
+  height:420px;
+  float:left;
+}
+
+img.thumbNail{
+    width:75px;
+    height:75px;
+    float: right;
+    margin:2px;
+}
+
+ul.thumbnailList{
+  display:flex;
+  list-style: none;
+}

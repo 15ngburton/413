@@ -31,13 +31,14 @@ class Product(PolymorphicModel):
             return "catalog/media/products/notfound.jpg"
 
     def image_urls(self):
+        urlList = []
         if (len(list(self.images.all())) != 0):
-            urlList = []
             for img in list(self.images.all()):
-                urlList.append(settings.STATIC_URL + "catalog/media/products" + img.filename)
+                urlList.append("catalog/media/products/" + img.filename)
             return urlList
         else:
-            return STATIC_URL + "catalog/media/products/notfound.png"
+            urlList.append("catalog/media/products/notfound.jpg")
+            return urlList
 
 
 class IndividualProduct(Product):
